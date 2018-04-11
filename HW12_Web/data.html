@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Web Visualization</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body style = "background-color: lightgray">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="index.html">Latitude</a>
+      </div>
+
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- <li><a href="#">Link</a></li> -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plots <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="temperature.html">Max Temperature</a></li>
+              <li><a href="humidity.html">Humidity</a></li>
+              <li><a href="cloudiness.html">Cloudiness</a></li>
+              <li><a href="windspeed.html">Wind Speed</a></li>
+            </ul>
+          </li>
+          <li><a href="comparison.html">Comparison</a></li>
+          <li><a href="data.html">Data</a></li>
+        </ul>
+      </div>
+    <!-- /.navbar-collapse -->
+    </div>
+      <!-- /.container-fluid -->
+  </nav>
+  
+  <div class = "container-fluid">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <h2>Data</h2>
+        <br>
+        <p>The following table includes data used for plotting during this project.  The first 15 records are shown.</p>
+        <br>
+        
+    <div class="row"> 
+      <div class="col-md-12"></div>
+        <table class="table table-bordered" border="1">
+          <colgroup span="10"></colgroup>
+          <tr>
+            <th>City_ID</th>
+            <th>City</th>
+            <th>Cloudiness</th>
+            <th>Country</th>
+            <th>Date</th>
+            <th>Humidity</th>
+            <th>Lat</th>
+            <th>Lng</th>
+            <th>Max Temp</th>
+            <th>Wind Speed</th>
+          </tr>
+          <tr>
+            <th>0</th>
+            <th>longyearbyen</th>
+            <th>75</th>
+            <th>SJ</th>
+            <th>1483588200</th>
+            <th>73</th>
+            <th>78.22</th>
+            <th>15.64</th>
+            <th>26.6</th>
+            <th>19.46</th>
+          </tr>
+          <tr>
+            <th>1</th>
+            <th>asau</th>
+            <th>0</th>
+            <th>RO</th>
+            <th>1483592400</th>
+            <th>59</th>
+            <th>46.43</th>
+            <th>26.4</th>
+            <th>37.4</th>
+            <th>14.99</th>
+          </tr>
+          <tr>
+            <th>2</th>
+            <th>hartselle</th>
+            <th>1</th>
+            <th>US</th>
+            <th>1483592400</th>
+            <th>86</th>
+            <th>34.44</th>
+            <th>-86.94</th>
+            <th>32</th>
+            <th>3.36</th>
+          </tr>
+          <tr>
+            <th>3</th>
+            <th>komsomolskiy</th>
+            <th>40</th>
+            <th>UZ</th>
+            <th>1483592400</th>
+            <th>80</th>
+            <th>40.43</th>
+            <th>-71.72</th>
+            <th>37.4</th>
+            <th>3.36</th>
+          </tr>
+          <tr>
+            <th>4</th>
+            <th>kapaa</th>
+            <th>90</th>
+            <th>US</th>
+            <th>1483592400</th>
+            <th>88</th>
+            <th>22.08</th>
+            <th>-159.32</th>
+            <th>71.6</th>
+            <th>17.22</th>
+          </tr>
+          <tr>
+            <th>5</th>
+            <th>cape town</th>
+            <th>36</th>
+            <th>ZA</th>
+            <th>1483593935</th>
+            <th>94</th>
+            <th>-33.93</th>
+            <th>18.42</th>
+            <th>70.15</th>
+            <th>15.14</th>
+          </tr>
+          <tr>
+            <th>6</th>
+            <th>damme</th>
+            <th>0</th>
+            <th>DE</th>
+            <th>1483591800</th>
+            <th>74</th>
+            <th>52.52</th>
+            <th>8.2</th>
+            <th>30.2</th>
+            <th>4.7</th>
+          </tr>
+          <tr>
+            <th>7</th>
+            <th>taolanaro</th>
+            <th>75</th>
+            <th>MG</th>
+            <th>1483592400</th>
+            <th>83</th>
+            <th>-25.03</th>
+            <th>47</th>
+            <th>75.2</th>
+            <th>13.87</th>
+          </tr>
+          <tr>
+            <th>8</th>
+            <th>georgetown</th>
+            <th>75</th>
+            <th>GY</th>
+            <th>1483588800</th>
+            <th>94</th>
+            <th>6.8</th>
+            <th>-58.16</th>
+            <th>75.2</th>
+            <th>4.7</th>
+          </tr>
+          <tr>
+            <th>9</th>
+            <th>rikitea</th>
+            <th>0</th>
+            <th>PF</th>
+            <th>1483594241</th>
+            <th>100</th>
+            <th>-23.12</th>
+            <th>-134.97</th>
+            <th>75.59</th>
+            <th>7.76</th>
+          </tr>
+          <tr>
+            <th>10</th>
+            <th>karaul</th>
+            <th>0</th>
+            <th>IN</th>
+            <th>1483594287</th>
+            <th>85</th>
+            <th>26.5</th>
+            <th>77.02</th>
+            <th>70.15</th>
+            <th>4.18</th>
+          </tr>
+          <tr>
+            <th>11</th>
+            <th>punta arenas</th>
+            <th>0</th>
+            <th>CL</th>
+            <th>1483588800</th>
+            <th>60</th>
+            <th>-53.15</th>
+            <th>-70.92</th>
+            <th>41</th>
+            <th>4.7</th>
+          </tr>
+          <tr>
+            <th>12</th>
+            <th>kendari</th>
+            <th>24</th>
+            <th>ID</th>
+            <th>1483592400</th>
+            <th>86</th>
+            <th>34.44</th>
+            <th>-86.94</th>
+            <th>32</th>
+            <th>3.36</th>
+          </tr>
+          <tr>
+            <th>13</th>
+            <th>aykhal</th>
+            <th>0</th>
+            <th>RU</th>
+            <th>1483594270</th>
+            <th>0</th>
+            <th>66</th>
+            <th>111.5</th>
+            <th>-43.08</th>
+            <th>2.84</th>
+          </tr>
+          <tr>
+            <th>14</th>
+            <th>meyungs</th>
+            <th>90</th>
+            <th>PW</th>
+            <th>1483591800</th>
+            <th>89</th>
+            <th>7.34</th>
+            <th>134.47</th>
+            <th>86</th>
+            <th>12.75</th>
+          </tr>
+
+        </table>
+
+        </div>
+      </div>
+    </div> 
+  </div>  
+
+</body>
+</html>
