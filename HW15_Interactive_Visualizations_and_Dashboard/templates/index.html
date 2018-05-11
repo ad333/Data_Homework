@@ -23,32 +23,27 @@
         <hr>
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-4">
                 <div class="form-group">
                     <h4>SELECT Sample:</h4>
                     <select id="selDataset" onchange="optionChanged(this.value)"></select>  
                 </div>
+                <hr>
+                <div id="metadata">
+                    <h4>Sample Metadata</h4>
+                </div>    
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div id="pie"></div>
-            </div>
+            </div>   
         </div>        
-
+        <hr>
         <div class="row">
             <div class="col-md-12">
                 <div id="bubble"></div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div id="metadata"></div>
-            </div>
-        </div>
-        
     </div>
     
     <script src="../static/plots.js" type="text/javascript"></script>

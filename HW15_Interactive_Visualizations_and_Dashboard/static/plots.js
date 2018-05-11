@@ -1,9 +1,4 @@
-// var $selDataset = document.getElementById("selDataset");
-// var $pie = document.getElementById("pie");
-// var $bubble = document.getElementById("bubble");
-// var $metadata = document.getElementById("metadata");
-
-
+// Function to get sample ids/names
 function getSampleNames() {
   var x = [];
   
@@ -28,21 +23,41 @@ function getSampleNames() {
 getSampleNames(); 
 
 
-function init(sample = "BB_940")  {
+// Function to get otu descriptions
+function getOtuDescriptions()  {
+  var url = "/otu";
+  Plotly.d3.json(url, function(error, response) {
+
+    if (error) return console.warn(error);
+    
+    for (i=0; i<response.length; i++)  {
+      x.push(response[i]);
+    }
+    //console.log(x);
+    return x;
+  })
+}
+
+
+// Function to create initial page using default data (BB_940)
+function init(sample)  {
+  plotPie(sample);
   plotBubble(sample);
   displayMetadata(sample);
-  plotPie(sample);
 };
+init("BB_940");
 
 
+// Function to handle option change 
 function optionChanged(sample)  {
   plotPie(sample);
   plotBubble(sample);
   displayMetadata(sample);
 };
-
 // optionChanged(sample);
 
+
+// Function to create pie chart
 function plotPie(sample)  {
   var url = "/samples/" + sample;
   Plotly.d3.json(url, function(error, response)  {
@@ -50,14 +65,6 @@ function plotPie(sample)  {
 
     var labels_list = [];
     var values_list = [];
-    /*
-    for (i=0; i<10; i++)  {
-      var label = response["otu_ids"][i];
-      labels_list.push(label);
-      var value = response["sample_values"][i];
-      values_list.push(value);
-    };
-    */
 
     var labels_list = response["otu_ids"].slice(0, 10);
     var values_list = response["sample_values"].slice(0, 10);
@@ -65,6 +72,7 @@ function plotPie(sample)  {
     var trace1 = {
       labels: labels_list,
       values: values_list,
+      hovertext: labels_list,
       type: "pie"
     };
     
@@ -81,6 +89,7 @@ function plotPie(sample)  {
 };
 
 
+// Function to create bubble chart
 function plotBubble(sample)  {
   var url = "/samples/" + sample;
   Plotly.d3.json(url, function(error, response)  {
@@ -89,47 +98,51 @@ function plotBubble(sample)  {
     var labels_list = [];
     var values_list = [];
 
-    var labels_list = response["otu_ids"].slice(0, 10);
-    var values_list = response["sample_values"].slice(0, 10);
+    var labels_list = response["otu_ids"];
+    var values_list = response["sample_values"];
 
-    var trace1 = {
-      labels: labels_list,
-      values: values_list,
-      type: "bubble"
-    };
+    var trace = {
+      x: labels_list,
+      y: values_list,
+      mode: "markers",
+      marker:{
+        color: labels_list,
+        size: values_list,
+        mode: "markers",
+        text: labels_list,
+        type: "scatter"
+      }
+    }
     
-    var data = [trace1];
+    var data = [trace];
     
     var layout = {
       title: "'Bubble' Chart",
       xaxis: {title: 'otu_ids'},
       yaxis: {title: 'sample_values'}
-    };
+    }
     
     Plotly.newPlot("bubble", data, layout);
   });
 };
  
 
+// Function to display sample metadata info
 function displayMetadata(sample)  {
   var url = "/metadata/" + sample;
   Plotly.d3.json(url, function(error, response)  {
     if (error) return console.warn(error);
-  console.log(response);
-  
-  var data = response;
-  
-  document.getElementById("metadata").innerHTML = data;
+    console.log(response);
+    
+    var keys_ = Object.keys(response);
+    var values_ = Object.values(response)
 
-
+    var v = document.getElementById("metadata");
+    v.innerHTML = "";
+    for (i = 0; i < keys_.length; i++) {
+      var par = document.createElement("p");
+      par.innerHTML = keys_[i] + ": " + values_[i]; 
+      v.appendChild(par)
+    }
   });  
 };
-
-
-
-
-
-
-
-
-
