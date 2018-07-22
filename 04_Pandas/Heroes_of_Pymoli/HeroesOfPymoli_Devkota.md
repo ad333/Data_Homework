@@ -1,12 +1,4 @@
 
-
-```python
-# Name:  Ashwini Devkota
-# Assignment:  Heroes of Pymoli
-
-```
-
-
 ```python
 # Summary of three observable trends based on data
 print('''\n

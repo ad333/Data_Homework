@@ -1,5 +1,4 @@
 
-# Name:  Ashwini Devkota
 # News Mood
 
 ## Analysis

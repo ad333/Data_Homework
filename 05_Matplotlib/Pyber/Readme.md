@@ -1,6 +1,4 @@
 
-# Name:  Ashwini Devkota
-
 # Pyber Ride Sharing
 
 ## Analysis

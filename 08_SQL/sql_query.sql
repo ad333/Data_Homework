@@ -1,5 +1,5 @@
--- Name:  Ashwini Devkota
--- HW10:  SQL
+
+-- SQL
 
 
 -- Use Sakila database
